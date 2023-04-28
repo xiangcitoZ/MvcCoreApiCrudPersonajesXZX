@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MvcCoreApiCrudPersonajesXZX.Models.Personaje>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-warning"
+       asp-controller="Personajes" 
+       asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdPersonaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personajes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdSerie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdPersonaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Personajes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSerie)
+            </td>
+            <td>
+                    <a  class="btn btn-success"
+                        asp-controller="Personajes"
+                   asp-action="Edit" asp-route-idpersonaje="@item.IdPersonaje">Editar</a> |
+
+                    <a class="btn btn-primary"
+                        asp-controller="Personajes"
+                   asp-action="Details" asp-route-idpersonaje="@item.IdPersonaje">Detalles</a> |
+
+                    <a class="btn btn-secondary"
+                        asp-controller="Personajes"
+                   asp-action="Delete" asp-route-idpersonaje="@item.IdPersonaje">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
